@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="assets/girl.png" type="image/x-icon" />
+    <title>Lisa Melanie</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f8f1fe;
+        color: #5a4a77;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      .stars {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+      }
+
+      .star {
+        position: absolute;
+        background-color: white;
+        border-radius: 50%;
+        animation: twinkle 3s infinite ease-in-out;
+      }
+
+      @keyframes twinkle {
+        0% {
+          opacity: 0.2;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.2;
+        }
+      }
+
+      .screen {
+        width: 85%;
+        max-width: 400px;
+        background-color: rgba(255, 255, 255, 0.85);
+        border-radius: 20px;
+        padding: 2rem 1.5rem;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(153, 128, 250, 0.2);
+        display: none;
+        backdrop-filter: blur(5px);
+        transition: all 0.5s ease;
+        min-height: 70vh;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .active {
+        display: flex;
+      }
+
+      h1 {
+        font-family: "Pacifico", cursive;
+        color: #9057e9;
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .btn {
+        background-color: #b19aea;
+        color: white;
+        border: none;
+        padding: 0.8rem 2rem;
+        border-radius: 50px;
+        font-family: "Poppins", sans-serif;
+        font-size: 1.1rem;
+        cursor: pointer;
+        margin: 10px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(177, 154, 234, 0.3);
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 7px 15px rgba(177, 154, 234, 0.4);
+      }
+
+      .back-btn {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background-color: rgba(177, 154, 234, 0.7);
+        color: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        box-shadow: 0 3px 10px rgba(177, 154, 234, 0.3);
+        transition: all 0.3s ease;
+        z-index: 10;
+      }
+
+      .back-btn:hover {
+        background-color: rgba(177, 154, 234, 0.9);
+        transform: scale(1.1);
+      }
+
+      .btn-green {
+        background-color: #7ad6a2;
+      }
+
+      .btn-pink {
+        background-color: #ff9dd4;
+      }
+
+      .btn-no {
+        position: relative;
+      }
+
+      .illustration {
+        width: 200px;
+        height: 200px;
+        margin: 1rem auto;
+        position: relative;
+      }
+
+      .cat {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 50%;
+        animation: bounce 2s infinite ease-in-out;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .flower {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: #ff9dd4;
+        border-radius: 50%;
+        opacity: 0;
+      }
+
+      @keyframes bloomIn {
+        0% {
+          transform: scale(0);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        opacity: 0;
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(-100vh) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .reasons {
+        text-align: left;
+        margin-top: 1rem;
+      }
+
+      .reasons li {
+        margin-bottom: 0.8rem;
+        font-size: 1rem;
+      }
+
+      .secret-btn {
+        font-size: 0.8rem;
+        opacity: 0.6;
+        margin-top: 2rem;
+        background: none;
+        border: none;
+        color: #9057e9;
+        cursor: pointer;
+      }
+
+      .secret-btn:hover {
+        opacity: 1;
+      }
+
+      .audio-btn {
+        background: #ffd6ef;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem auto;
+        cursor: pointer;
+        box-shadow: 0 3px 10px rgba(255, 182, 234, 0.4);
+      }
+
+      .message-appear {
+        opacity: 0;
+        animation: fadeIn 1s forwards;
+        animation-delay: 0.5s;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      #couple {
+        width: 200px;
+        height: 180px;
+        position: relative;
+      }
+
+      .heart {
+        position: absolute;
+        color: #ff6b9d;
+        animation: pulse 1.5s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .question {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #9057e9;
+        opacity: 0;
+        animation: bigFadeIn 2s forwards;
+        animation-delay: 1s;
+      }
+
+      @keyframes bigFadeIn {
+        0% {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      /* Heart dots animation */
+      .heart-container {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+      }
+
+      .heart-dot {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #ff6b9d;
+        opacity: 0;
+        transform: scale(0);
+        animation: heartDotAppear 1s forwards, heartDotPulse 2s infinite;
+      }
+
+      @keyframes heartDotAppear {
+        0% {
+          opacity: 0;
+          transform: scale(0);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes heartDotPulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.3);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stars" id="stars"></div>
+
+    <!-- Screen 1: Landing -->
+    <div class="screen active" id="screen1">
+      <div></div>
+      <div>
+        <h1>A little question for a very special girl...</h1>
+      </div>
+      <button class="btn" id="continueBtn">Continue</button>
+    </div>
+
+    <!-- Screen 2: Introduction -->
+    <div class="screen" id="screen2">
+      <button class="back-btn" id="backBtn2">←</button>
+      <div></div>
+      <div>
+        <div class="illustration" id="couple">
+          <!-- SVG for couple illustration -->
+          <svg width="200" height="180" viewBox="0 0 200 180">
+            <circle cx="60" cy="50" r="30" fill="#ffc2e2" />
+            <circle cx="140" cy="50" r="30" fill="#b6d8ff" />
+            <path
+              d="M60 45 Q100 30 140 45"
+              stroke="#ff9dd4"
+              stroke-width="3"
+              fill="none"
+            />
+            <circle cx="50" cy="45" r="5" fill="white" />
+            <circle cx="70" cy="45" r="5" fill="white" />
+            <circle cx="130" cy="45" r="5" fill="white" />
+            <circle cx="150" cy="45" r="5" fill="white" />
+            <circle cx="52" cy="45" r="2" fill="black" />
+            <circle cx="72" cy="45" r="2" fill="black" />
+            <circle cx="132" cy="45" r="2" fill="black" />
+            <circle cx="152" cy="45" r="2" fill="black" />
+            <path
+              d="M50 65 Q60 70 70 65"
+              stroke="#ff6b9d"
+              stroke-width="2"
+              fill="none"
+            />
+            <path
+              d="M130 65 Q140 70 150 65"
+              stroke="#ff6b9d"
+              stroke-width="2"
+              fill="none"
+            />
+            <text
+              x="100"
+              y="100"
+              text-anchor="middle"
+              class="heart"
+              font-size="24"
+            >
+              ❤️
+            </text>
+          </svg>
+        </div>
+        <p class="message-appear">You are an amazing person, Lisa.</p>
+        <p class="message-appear" style="animation-delay: 1.5s">
+          Kind, sweet, and full of sunshine...
+        </p>
+        <p class="message-appear" style="animation-delay: 2.5s">
+          And I feel so lucky to know you.
+        </p>
+      </div>
+      <button class="btn" id="nextBtn">Next</button>
+    </div>
+
+    <!-- Screen 3: The Question -->
+    <div class="screen" id="screen3">
+      <button class="back-btn" id="backBtn3">←</button>
+      <div></div>
+      <div id="flowerContainer" class="illustration">
+        <!-- Flowers will be added here dynamically -->
+      </div>
+      <div>
+        <p class="question" id="theQuestion">
+          Lisa... will you be my friend? 🌸✨
+        </p>
+        <div
+          style="
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          "
+        >
+          <div>
+            <button class="btn btn-green" id="yesBtn">Yes</button>
+            <button class="btn btn-pink" id="ofCourseBtn">Of course!</button>
+          </div>
+          <div style="margin-top: 1.5rem">
+            <button class="btn btn-no" id="noBtn">No</button>
+          </div>
+        </div>
+      </div>
+      <div></div>
+    </div>
+
+    <!-- Screen 4: Success -->
+    <div class="screen" id="screen4">
+      <button class="back-btn" id="backBtn4">←</button>
+      <div></div>
+      <div>
+        <h1>Yay! I'm so happy! 🤭</h1>
+        <p>Thank you for being my friend, Lisa.</p>
+        <p>You're truly special.</p>
+        <div class="heart-container" id="heartContainer">
+          <!-- Heart dots will be added here dynamically -->
+        </div>
+        <button class="audio-btn" id="audioBtn">🔊</button>
+      </div>
+      <button class="secret-btn" id="secretBtn">♥ Why I like Lisa ♥</button>
+    </div>
+
+    <!-- Screen 5: Secret -->
+    <div class="screen" id="screen5">
+      <div></div>
+      <div>
+        <h1
+          style="
+            color: #ff6b9d;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 2rem;
+          "
+        >
+          ✨ What Bashy likes about Lisa ✨
+        </h1>
+        <div style="position: relative; margin: 2rem 0">
+          <div
+            style="
+              position: absolute;
+              top: -15px;
+              left: 0;
+              right: 0;
+              height: 2px;
+              background: linear-gradient(
+                to right,
+                transparent,
+                #ff9dd4,
+                transparent
+              );
+            "
+          ></div>
+          <ul
+            class="reasons"
+            style="
+              background-color: rgba(255, 235, 245, 0.5);
+              padding: 1.5rem;
+              border-radius: 15px;
+              box-shadow: 0 5px 15px rgba(255, 155, 210, 0.2);
+            "
+          >
+            <li style="margin-bottom: 1rem">
+              <span style="color: #ff6b9d; font-weight: bold">♥</span> She is
+              always so positive and optimistic
+              <span style="font-size: 1.2rem">☀️</span>
+            </li>
+            <li style="margin-bottom: 1rem">
+              <span style="color: #ff6b9d; font-weight: bold">♥</span> She is
+              incredibly kind and thoughtful
+              <span style="font-size: 1.2rem">💕</span>
+            </li>
+            <li style="margin-bottom: 1rem">
+              <span style="color: #ff6b9d; font-weight: bold">♥</span> Her
+              shyness is absolutely contagious and adorable
+              <span style="font-size: 1.2rem">😊</span>
+            </li>
+            <li>
+              <span style="color: #ff6b9d; font-weight: bold">♥</span> She makes
+              everyone around her feel special
+              <span style="font-size: 1.2rem">🌟</span>
+            </li>
+          </ul>
+          <div
+            style="
+              position: absolute;
+              bottom: -15px;
+              left: 0;
+              right: 0;
+              height: 2px;
+              background: linear-gradient(
+                to right,
+                transparent,
+                #ff9dd4,
+                transparent
+              );
+            "
+          ></div>
+        </div>
+        <div class="illustration" style="position: relative">
+          <div
+            style="
+              position: absolute;
+              top: -10px;
+              left: 50%;
+              transform: translateX(-50%);
+              font-size: 1.5rem;
+            "
+          >
+            🤭
+          </div>
+          <img
+            src="assets/cute baby cat💢!__3.jpeg"
+            alt="tiny cat"
+            class="cat"
+            id="cat"
+            style="border: 3px solid #ff9dd4"
+          />
+          <div
+            style="
+              position: absolute;
+              width: 100%;
+              text-align: center;
+              bottom: -25px;
+              font-size: 0.8rem;
+              color: #9057e9;
+              font-style: italic;
+            "
+          >
+            (Click the cat for a surprise!)
+          </div>
+        </div>
+      </div>
+      <button
+        class="btn"
+        id="backBtn"
+        style="
+          background: linear-gradient(to right, #ff9dd4, #b19aea);
+          box-shadow: 0 5px 15px rgba(255, 155, 210, 0.3);
+          font-weight: bold;
+        "
+      >
+        ✨ Back to celebration ✨
+      </button>
+    </div>
+
+    <!-- Screen 6: Sad Screen -->
+    <div class="screen" id="screen6">
+      <button class="back-btn" id="backBtn6">←</button>
+      <div></div>
+      <div>
+        <h1 style="color: #9e7bb5">Oh no! 😢</h1>
+        <div class="illustration">
+          <svg width="200" height="180" viewBox="0 0 200 180">
+            <circle cx="100" cy="70" r="50" fill="#e0c5f7" />
+            <circle cx="80" cy="60" r="5" fill="white" />
+            <circle cx="120" cy="60" r="5" fill="white" />
+            <circle cx="82" cy="60" r="2" fill="black" />
+            <circle cx="122" cy="60" r="2" fill="black" />
+            <!-- Sad mouth -->
+            <path
+              d="M80 90 Q100 80 120 90"
+              stroke="#9e7bb5"
+              stroke-width="3"
+              fill="none"
+            />
+            <!-- Tears -->
+            <circle cx="75" cy="70" r="3" fill="#b6d8ff" opacity="0.8">
+              <animate
+                attributeName="cy"
+                from="70"
+                to="100"
+                dur="2s"
+                repeatCount="indefinite"
+              />
+              <animate
+                attributeName="opacity"
+                from="0.8"
+                to="0"
+                dur="2s"
+                repeatCount="indefinite"
+              />
+            </circle>
+            <circle cx="125" cy="65" r="3" fill="#b6d8ff" opacity="0.8">
+              <animate
+                attributeName="cy"
+                from="65"
+                to="95"
+                dur="1.7s"
+                repeatCount="indefinite"
+              />
+              <animate
+                attributeName="opacity"
+                from="0.8"
+                to="0"
+                dur="1.7s"
+                repeatCount="indefinite"
+              />
+            </circle>
+          </svg>
+        </div>
+        <p>I'm so sad you don't want to be my friend...😔</p>
+        <p>Maybe you'll change your mind?</p>
+      </div>
+      <button class="btn" id="tryAgainBtn">Try Again</button>
+    </div>
+
+    <audio id="popSound" preload="auto">
+      <source
+        src="data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA/+M4wAAAAAAAAAAAAEluZm8AAAAPAAAAAwAAAbAAoDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbWhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaP/////////////////////////////////AALAbAGAAwAMABwAAP+NowAAAABLSUQzAwAAAAAAdWhkdYnH+zU5hcm1ldGEAAAAAYWxidW0AAAAAYWxidW0AAAAAAAAAAAAAAAAAAAA="
+        type="audio/mpeg"
+      />
+    </audio>
+
+    <audio id="thankYouAudio" preload="auto">
+      <!-- This would be your actual audio file with "Thank you, Lisa!" -->
+      <source src="assets/happy.mp3" type="audio/mpeg" />
+    </audio>
+
+    <audio id="sadAudio" preload="auto" loop>
+      <source src="assets/sad.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script>
+      // Create stars background
+      document.addEventListener("DOMContentLoaded", function () {
+        createStars();
+
+        // Sound effects setup
+        const popSound = document.getElementById("popSound");
+        const thankYouAudio = document.getElementById("thankYouAudio");
+
+        // Navigation buttons
+        document
+          .getElementById("continueBtn")
+          .addEventListener("click", function () {
+            playPopSound();
+            switchScreen("screen1", "screen2");
+          });
+
+        document
+          .getElementById("nextBtn")
+          .addEventListener("click", function () {
+            playPopSound();
+            switchScreen("screen2", "screen3");
+            createFlowers();
+          });
+
+        document
+          .getElementById("yesBtn")
+          .addEventListener("click", function () {
+            playPopSound();
+            createConfetti();
+            switchScreen("screen3", "screen4");
+            createHeartDots();
+            // Play happy audio
+            const happyAudio = document.getElementById("thankYouAudio");
+            happyAudio.currentTime = 0;
+            happyAudio
+              .play()
+              .catch((error) =>
+                console.error("Error playing happy audio:", error)
+              );
+          });
+
+        document
+          .getElementById("ofCourseBtn")
+          .addEventListener("click", function () {
+            playPopSound();
+            createConfetti();
+            switchScreen("screen3", "screen4");
+            createHeartDots();
+            // Play happy audio
+            const happyAudio = document.getElementById("thankYouAudio");
+            happyAudio.currentTime = 0;
+            happyAudio
+              .play()
+              .catch((error) =>
+                console.error("Error playing happy audio:", error)
+              );
+          });
+
+        document
+          .getElementById("secretBtn")
+          .addEventListener("click", function () {
+            playPopSound();
+            // Stop happy audio when leaving success screen
+            const happyAudio = document.getElementById("thankYouAudio");
+            happyAudio.pause();
+            happyAudio.currentTime = 0;
+
+            switchScreen("screen4", "screen5");
+
+            // Add a small animation to the cat when the screen loads
+            setTimeout(() => {
+              const cat = document.getElementById("cat");
+              if (cat) {
+                cat.style.transform = "scale(1.2)";
+                cat.style.transition = "transform 0.5s ease";
+                setTimeout(() => {
+                  cat.style.transform = "scale(1)";
+                }, 500);
+              }
+            }, 300);
+          });
+
+        document
+          .getElementById("backBtn")
+          .addEventListener("click", function () {
+            playPopSound();
+            switchScreen("screen5", "screen4");
+            createHeartDots();
+            // Play happy audio when returning to success screen
+            const happyAudio = document.getElementById("thankYouAudio");
+            happyAudio.currentTime = 0;
+            happyAudio
+              .play()
+              .catch((error) =>
+                console.error("Error playing happy audio:", error)
+              );
+          });
+
+        // No button goes directly to sad screen
+        const noBtn = document.getElementById("noBtn");
+
+        noBtn.addEventListener("click", function () {
+          // Go directly to sad screen
+          const sadAudio = document.getElementById("sadAudio");
+          sadAudio.currentTime = 0; // Reset audio to beginning
+          sadAudio
+            .play()
+            .catch((error) => console.error("Error playing sad audio:", error));
+          switchScreen("screen3", "screen6");
+        });
+
+        // Try Again button on sad screen
+        document
+          .getElementById("tryAgainBtn")
+          .addEventListener("click", function () {
+            playPopSound();
+            // Stop sad audio
+            const sadAudio = document.getElementById("sadAudio");
+            sadAudio.pause();
+            sadAudio.currentTime = 0;
+
+            switchScreen("screen6", "screen3");
+          });
+
+        // Audio button - toggle happy audio
+        document
+          .getElementById("audioBtn")
+          .addEventListener("click", function () {
+            const happyAudio = document.getElementById("thankYouAudio");
+            if (happyAudio.paused) {
+              happyAudio
+                .play()
+                .catch((error) =>
+                  console.error("Error playing happy audio:", error)
+                );
+              this.textContent = "🔇";
+            } else {
+              happyAudio.pause();
+              this.textContent = "🔊";
+            }
+          });
+
+        // Add animation to cat
+        const cat = document.getElementById("cat");
+        if (cat) {
+          cat.addEventListener("click", function () {
+            cat.style.transform = "rotate(360deg)";
+            cat.style.transition = "transform 0.5s ease";
+            setTimeout(() => {
+              cat.style.transform = "";
+            }, 500);
+            playPopSound();
+          });
+        }
+
+        // Back button navigation
+        document
+          .getElementById("backBtn2")
+          .addEventListener("click", function () {
+            playPopSound();
+            switchScreen("screen2", "screen1");
+          });
+
+        document
+          .getElementById("backBtn3")
+          .addEventListener("click", function () {
+            playPopSound();
+            switchScreen("screen3", "screen2");
+          });
+
+        document
+          .getElementById("backBtn4")
+          .addEventListener("click", function () {
+            playPopSound();
+            // Stop happy audio when leaving success screen
+            const happyAudio = document.getElementById("thankYouAudio");
+            happyAudio.pause();
+            happyAudio.currentTime = 0;
+            switchScreen("screen4", "screen3");
+            createFlowers();
+          });
+
+        document
+          .getElementById("backBtn6")
+          .addEventListener("click", function () {
+            playPopSound();
+            // Stop sad audio
+            const sadAudio = document.getElementById("sadAudio");
+            sadAudio.pause();
+            sadAudio.currentTime = 0;
+            switchScreen("screen6", "screen3");
+            createFlowers();
+          });
+      });
+
+      function switchScreen(fromId, toId) {
+        document.getElementById(fromId).classList.remove("active");
+        document.getElementById(toId).classList.add("active");
+      }
+
+      function createStars() {
+        const starsContainer = document.getElementById("stars");
+        const starCount = 50;
+
+        for (let i = 0; i < starCount; i++) {
+          const star = document.createElement("div");
+          star.classList.add("star");
+
+          // Random position
+          const x = Math.random() * 100;
+          const y = Math.random() * 100;
+
+          // Random size
+          const size = Math.random() * 3 + 1;
+
+          // Random animation delay
+          const delay = Math.random() * 3;
+
+          star.style.left = `${x}%`;
+          star.style.top = `${y}%`;
+          star.style.width = `${size}px`;
+          star.style.height = `${size}px`;
+          star.style.animationDelay = `${delay}s`;
+
+          starsContainer.appendChild(star);
+        }
+      }
+
+      function createFlowers() {
+        const container = document.getElementById("flowerContainer");
+        const flowerColors = [
+          "#ff9dd4",
+          "#b19aea",
+          "#7ad6a2",
+          "#ffc2e2",
+          "#b6d8ff",
+        ];
+        const flowerCount = 12;
+
+        for (let i = 0; i < flowerCount; i++) {
+          const flower = document.createElement("div");
+          flower.classList.add("flower");
+
+          const size = Math.random() * 15 + 10;
+          const x = Math.random() * 160 + 20;
+          const y = Math.random() * 160 + 20;
+          const colorIndex = Math.floor(Math.random() * flowerColors.length);
+          const delay = Math.random() * 2;
+
+          flower.style.width = `${size}px`;
+          flower.style.height = `${size}px`;
+          flower.style.left = `${x}px`;
+          flower.style.top = `${y}px`;
+          flower.style.backgroundColor = flowerColors[colorIndex];
+          flower.style.animation = `bloomIn 1s forwards`;
+          flower.style.animationDelay = `${delay}s`;
+
+          container.appendChild(flower);
+        }
+      }
+
+      function createConfetti() {
+        const body = document.body;
+        const confettiColors = [
+          "#ff9dd4",
+          "#b19aea",
+          "#7ad6a2",
+          "#ffc2e2",
+          "#b6d8ff",
+          "#ffea97",
+        ];
+        const confettiCount = 100;
+
+        for (let i = 0; i < confettiCount; i++) {
+          const confetti = document.createElement("div");
+          confetti.classList.add("confetti");
+
+          const size = Math.random() * 10 + 5;
+          const x = Math.random() * window.innerWidth;
+          const colorIndex = Math.floor(Math.random() * confettiColors.length);
+          const shape = Math.random() > 0.5 ? "★" : "♥";
+          const duration = Math.random() * 3 + 2;
+          const delay = Math.random() * 0.5;
+
+          confetti.style.left = `${x}px`;
+          confetti.style.top = "-20px";
+          confetti.style.color = confettiColors[colorIndex];
+          confetti.style.fontSize = `${size}px`;
+          confetti.textContent = shape;
+          confetti.style.animation = `fall ${duration}s forwards`;
+          confetti.style.animationDelay = `${delay}s`;
+
+          body.appendChild(confetti);
+
+          // Remove confetti elements after animation
+          setTimeout(() => {
+            body.removeChild(confetti);
+          }, (duration + delay) * 1000);
+        }
+      }
+
+      function playPopSound() {
+        const popSound = document.getElementById("popSound");
+        popSound.currentTime = 0;
+        popSound.play();
+      }
+
+      function createHeartDots() {
+        const container = document.getElementById("heartContainer");
+        // Clear any existing dots
+        container.innerHTML = "";
+
+        // Heart shape coordinates (x, y) pairs
+        const heartShape = [];
+
+        // Generate heart shape points
+        for (let angle = 0; angle < Math.PI * 2; angle += 0.05) {
+          // Heart parametric equations
+          const x = 16 * Math.pow(Math.sin(angle), 3);
+          const y =
+            13 * Math.cos(angle) -
+            5 * Math.cos(2 * angle) -
+            2 * Math.cos(3 * angle) -
+            Math.cos(4 * angle);
+
+          // Scale and center the heart
+          const scaledX = x * 3 + 100;
+          const scaledY = -y * 3 + 100;
+
+          heartShape.push({ x: scaledX, y: scaledY });
+        }
+
+        // Create dots for each point with random delay
+        heartShape.forEach((point, index) => {
+          const dot = document.createElement("div");
+          dot.classList.add("heart-dot");
+
+          // Random color variations
+          const colors = ["#ff6b9d", "#ff9dd4", "#ff4d8c", "#ff85c2"];
+          const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+          // Random size variations
+          const size = Math.random() * 4 + 4;
+
+          dot.style.left = `${point.x}px`;
+          dot.style.top = `${point.y}px`;
+          dot.style.backgroundColor = randomColor;
+          dot.style.width = `${size}px`;
+          dot.style.height = `${size}px`;
+
+          // Random animation delay
+          const delay = Math.random() * 2;
+          dot.style.animationDelay = `${delay}s`;
+
+          container.appendChild(dot);
+        });
+      }
+    </script>
+  </body>
+</html>
